@@ -1,0 +1,17 @@
+$color-primary: rgb(189, 0, 0);
+
+
+@mixin center{
+    text-align: center;
+    font-size: 5vw;
+    font-weight: 600;
+}
+
+.title{
+    color: $color-primary;
+}
+
+
+.paragraf{
+    @include center;
+}

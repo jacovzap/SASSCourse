@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-sassy-app';
+
+
+  pressButton(){
+      console.log('BOTON PRESIONADO');
+  }
 }
