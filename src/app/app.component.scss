@@ -1,5 +1,10 @@
+@import 'file';
+
 $color-primary: rgb(189, 0, 0);
 
+@function add-numbers($first-number, $second-number){
+    @return $first-number + $second-number
+}
 
 @mixin center{
     text-align: center;
@@ -7,11 +12,68 @@ $color-primary: rgb(189, 0, 0);
     font-weight: 600;
 }
 
-.title{
-    color: $color-primary;
+@mixin paragraf-size($size){
+    @if $size == large{
+        font-size: 20px;
+    }
+    @else if $size == small{
+            font-size: 10px;
+    }
+    
+}
+
+@mixin for-mobile-size{
+    @media(max-width: 500px) { @content; }
 }
 
 
-.paragraf{
-    @include center;
+.section-one{
+    .title{
+        color: $color-primary;
+        font-size: add-numbers(50px, 5px);
+        @include for-mobile-size{
+            font-size: 30px;
+        }
+    }
+    
+    .paragraf{
+        @include center;
+        color: $secondary-color;
+    } 
 }
+
+.container-description{
+
+    .description{
+        @include paragraf-size(small);
+    }
+}
+
+
+
+
+.button-template{
+    background-color: rgb(52, 109, 109);
+    color:rgb(39, 39, 39);
+    padding:  2%;
+    margin-right: 4%;
+    cursor: pointer;
+    font-size: 50px;
+    &:hover{
+        background-color: rgb(27, 27, 27);
+        color:aliceblue;
+    }
+    &--green{
+        background-color: rgb(0, 100, 30);
+        color:rgb(207, 207, 207);
+    }
+}
+
+.button-two{
+        @extend .button-template;
+        font-size: 10px;
+        color: rgb(204, 213, 221);
+}
+
+
+
